@@ -1,7 +1,24 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* @custom-variant dark (&:is(.dark *)); */
+
+/* Cambia el color de la barra de estado en móviles */
+@supports (-webkit-touch-callout: none) {
+  body {
+    padding-top: env(safe-area-inset-top);
+  }
+  /* Para Safari/iOS */
+  .status-bar {
+    background-color: #eff6ff; /* Mismo color que tu fondo */
+    height: env(safe-area-inset-top);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+  }
+}
 
 @theme inline {
   --color-background: var(--background);
