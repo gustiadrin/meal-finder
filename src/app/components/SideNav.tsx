@@ -48,6 +48,14 @@ export default function SideNav({ setCategory }: SideNavProps) {
     "bg-blue-300 md:bg-blue-400 text-blue-500 md:text-blue-50 font-semibold shadow-md";
 
   useEffect(() => {
+    if (data && data.length > 0 && !selected) {
+      const firstCategory = data[0].strCategory;
+      setSelected(firstCategory);
+      setCategory(firstCategory); // Actualiza la categoría en el componente padre
+    }
+  }, [data, selected, setCategory]);
+
+  useEffect(() => {
     setIsMounted(true);
     const checkScreenSize = () => {
       const mobile = window.innerWidth < 768;
