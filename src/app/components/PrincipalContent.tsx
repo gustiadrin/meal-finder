@@ -3,7 +3,7 @@
 import { Skeleton } from "@/app/components/ui/skeleton";
 import useApiData from "@/hooks/useApiData";
 import { Meals } from "@/types";
-// import MealCard from "./MealCard";
+import MealCard from "./MealCard";
 
 interface PrincipalContentProps {
   meal: string;
@@ -35,13 +35,13 @@ export default function PrincipalContent({ meal }: PrincipalContentProps) {
     return (
       <div className="flex-1 bg-blue-50 min-h-[calc(100vh-64px)]">
         <div className="gap-4 m-[3%] md:min-h-screen  flex flex-col items-center sm:flex-row sm:flex-wrap sm:justify-center">
-          {/* {data.map((meal) => (
+          {data.map((meal) => (
             <MealCard
               key={meal.strMealThumb}
               imageUrl={meal.strMealThumb}
               title={meal.strMeal}
             ></MealCard>
-          ))} */}
+          ))}
         </div>
       </div>
     );
