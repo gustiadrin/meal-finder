@@ -12,7 +12,6 @@ export default function Home() {
       <main className="flex flex-auto">
         <SideNav setCategory={setCategory}></SideNav>
         <PrincipalContent meal={category}></PrincipalContent>
-        <p>hola</p>
       </main>
     </>
   );
