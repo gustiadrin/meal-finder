@@ -1,4 +1,4 @@
-// import { Search } from "lucide-react"; // Importa el ícono de búsqueda
+import { Search } from "lucide-react"; // Importa el ícono de búsqueda
 
 const Header = () => {
   return (
@@ -19,7 +19,7 @@ const Header = () => {
             className="w-full py-2 pl-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
           />
           <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-400 text-white p-1 rounded-full hover:bg-blue-600 transition-colors">
-            {/* <Search className="h-5 w-5" /> */}
+            <Search className="h-5 w-5" />
           </button>
         </div>
       </div>
