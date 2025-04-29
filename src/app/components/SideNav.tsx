@@ -276,7 +276,7 @@ export default function SideNav({ setCategory }: SideNavProps) {
 
       {/* Menú escritorio */}
       {!isMobile && (
-        <div className="hidden md:block shadow-xl w-[250px] bg-blue-50 sticky top-16 h-[calc(100vh-4rem)]">
+        <div className="hidden md:block md:overflow-auto shadow-xl w-[250px] bg-blue-50 sticky top-16 h-[calc(100vh-4rem)]">
           <div className="p-4">
             <h2 className="text-lg font-roboto text-blue-400 font-bold mb-4">
               CATEGORÍAS

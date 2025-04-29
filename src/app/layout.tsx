@@ -57,7 +57,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${geistRoboto.variable} ${geistMontserrat.variable}  antialiased`}
       >
-        <div className="status-bar md:hidden" />{" "}
         {/* Barra de estado personalizada */}
         {children}
       </body>
