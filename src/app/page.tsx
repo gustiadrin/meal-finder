@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Header></Header>
-      <main className="flex flex-auto min-h-0">
+      <main className="flex flex-1 min-h-0">
         <SideNav setCategory={setCategory}></SideNav>
         <PrincipalContent meal={category}></PrincipalContent>
       </main>

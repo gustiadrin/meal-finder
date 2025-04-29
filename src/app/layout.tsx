@@ -53,9 +53,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html className="md:h-full" lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${geistRoboto.variable} ${geistMontserrat.variable}  antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${geistRoboto.variable} ${geistMontserrat.variable}  antialiased flex flex-col h-full`}
       >
         {/* Barra de estado personalizada */}
         {children}

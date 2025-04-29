@@ -15,7 +15,7 @@ export default function PrincipalContent({ meal }: PrincipalContentProps) {
   );
   if (loading || !data?.length) {
     return (
-      <div className="flex-1 bg-blue-50">
+      <div className="flex-1 bg-blue-50 overflow-y-auto">
         <div className="h-auto gap-4 m-[3%] flex flex-col items-center sm:flex-row sm:flex-wrap sm:justify-center">
           {/* Mismo número de skeletons que cards mostrarías */}
           {[...Array(8)].map((_, index) => (
@@ -33,8 +33,8 @@ export default function PrincipalContent({ meal }: PrincipalContentProps) {
     );
   } else {
     return (
-      <div className="flex-1  bg-blue-50 min-h-[calc(100vh-64px)]">
-        <div className="gap-4 m-[3%] min-h-0 max-h-[calc(100vh-64px)] flex flex-col items-center sm:flex-row sm:flex-wrap sm:justify-center">
+      <div className="flex-1  bg-blue-50 min-h-0 overflow-y-auto">
+        <div className="gap-4 m-[3%] min-h-0 flex flex-col items-center sm:flex-row sm:flex-wrap sm:justify-center">
           {data.map((meal) => (
             <MealCard
               key={meal.strMealThumb}
