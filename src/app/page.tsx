@@ -3,10 +3,13 @@ import { useState } from "react";
 import SideNav from "./components/SideNav";
 import PrincipalContent from "./components/PrincipalContent";
 import Header from "./components/Header";
+import Modal from "./components/Modal";
 
 export default function Home() {
   const [category, setCategory] = useState("Beef");
   const [search, setSearch] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [idMeal, setIdMeal] = useState("");
 
   // Resetear la categoría cuando se realiza una búsqueda
   const handleSearch = (searchTerm: string) => {
@@ -19,6 +22,12 @@ export default function Home() {
     setSearch("");
     setCategory(category);
   };
+
+  const openModal = (idMeal: string) => {
+    setIdMeal(idMeal);
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
     <>
       <Header setSearch={handleSearch}></Header>
@@ -27,8 +36,14 @@ export default function Home() {
         <PrincipalContent
           meal={category}
           searchMeal={search}
+          onMealSelect={openModal}
         ></PrincipalContent>
       </main>
+      <Modal
+        isOpen={isModalOpen}
+        handleModal={() => openModal(idMeal)}
+        idMeal={idMeal}
+      ></Modal>
     </>
   );
 }

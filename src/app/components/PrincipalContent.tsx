@@ -9,11 +9,13 @@ import { useEffect, useState } from "react";
 interface PrincipalContentProps {
   meal?: string;
   searchMeal?: string;
+  onMealSelect: (idMeal: string) => void;
 }
 
 export default function PrincipalContent({
   meal,
   searchMeal,
+  onMealSelect,
 }: PrincipalContentProps) {
   const [currentUrl, setCurrentUrl] = useState<string>("");
 
@@ -34,7 +36,11 @@ export default function PrincipalContent({
 
   console.log(data);
 
-  if (loading) {
+  if (loading || !data?.length) {
+    if (!data?.length && !loading) {
+      return <p>no existen recetas</p>;
+    }
+
     return (
       <div className="flex-1 bg-blue-50 overflow-y-auto min-h-[calc(100vh-64px)]">
         <div className="grid grid-cols-1 justify-items-center align-items-center sm:grid-cols-2 md:flex md:flex-wrap justify-center gap-4 p-4 md:m-[3%] min-h-full">
@@ -53,18 +59,16 @@ export default function PrincipalContent({
     );
   }
 
-  if (!data?.length) {
-    return <p>no existen recetas</p>;
-  }
-
   return (
     <div className="flex-1 bg-blue-50 overflow-y-auto min-h-[calc(100vh-64px)]">
       <div className="grid grid-cols-1 justify-items-center align-items-center sm:grid-cols-2 md:flex md:flex-wrap justify-center gap-4 p-4 md:m-[3%] min-h-full">
         {data.map((meal) => (
           <MealCard
-            key={meal.strMealThumb}
+            key={meal.idMeal}
             imageUrl={meal.strMealThumb}
             title={meal.strMeal}
+            handleModal={onMealSelect}
+            idMeal={meal.idMeal}
           />
         ))}
       </div>

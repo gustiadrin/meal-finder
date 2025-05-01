@@ -159,7 +159,7 @@ export default function SideNav({ setCategory }: SideNavProps) {
           </button>
 
           <div
-            className={`fixed inset-0 z-4 bg-black/70 transition-opacity duration-300 ${
+            className={`fixed inset-0 z-4 bg-black/80 transition-opacity duration-300 ${
               isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
             }`}
             onClick={closeMobileMenu}

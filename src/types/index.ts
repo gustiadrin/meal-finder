@@ -10,4 +10,5 @@ export type Meals = {
   strMeal: string;
   strMealThumb: string;
   idMeal: string;
+  strInstructions: string;
 };

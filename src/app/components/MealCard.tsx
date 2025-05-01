@@ -4,10 +4,12 @@ type Props = {
   imageUrl: string | StaticImageData;
   title?: string;
   buttonText?: string;
+  idMeal: string;
   onButtonClick?: () => void;
+  handleModal: (idMeal: string) => void;
 };
 
-const MealCard = ({ imageUrl, title }: Props) => {
+const MealCard = ({ imageUrl, title, handleModal, idMeal }: Props) => {
   // const truncatedTitle = title
   //   ? title.split(" ").slice(0, 4).join(" ") +
   //     (title.split(" ").length > 4 ? "..." : "")
@@ -52,7 +54,10 @@ const MealCard = ({ imageUrl, title }: Props) => {
         )}
       </div>
 
-      <button className="w-28 h-9 font-montserrat text-white bg-blue-400 rounded-md hover:bg-blue-700">
+      <button
+        onClick={() => handleModal(idMeal)}
+        className="w-28 h-9 font-montserrat text-white bg-blue-400 rounded-md hover:bg-blue-700"
+      >
         Ver receta
       </button>
     </div>
