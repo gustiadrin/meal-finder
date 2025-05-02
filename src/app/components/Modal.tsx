@@ -1,3 +1,5 @@
+"use client";
+
 import useApidata from "@/hooks/useApiData";
 import { Meals } from "@/types";
 import { useEffect, useRef } from "react";
