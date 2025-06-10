@@ -64,6 +64,7 @@ export default function Modal({
   };
 
   if (!isOpen) return null;
+  //console.log(meal.strMealThumb);
 
   return ReactDOM.createPortal(
     <div

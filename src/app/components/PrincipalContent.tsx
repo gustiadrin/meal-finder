@@ -34,7 +34,7 @@ export default function PrincipalContent({
 
   const { data, loading } = useApiData<Meals>(currentUrl);
 
-  console.log(data);
+  //console.log(data);
 
   if (loading || !data?.length) {
     if (!data?.length && !loading) {
