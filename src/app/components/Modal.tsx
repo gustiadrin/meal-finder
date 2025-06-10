@@ -4,6 +4,7 @@ import useApidata from "@/hooks/useApiData";
 import { Meals } from "@/types";
 import { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
+import { Skeleton } from "./ui/skeleton";
 
 type ModalProps = {
   isOpen: boolean;
@@ -75,7 +76,7 @@ export default function Modal({
       >
         <button
           onClick={handleModal}
-          className="absolute right-4 top-4 text-gray-500 hover:text-gray-700"
+          className="absolute right-4 top-4 text-gray-500 hover:text-gray-700 ml-2"
           aria-label="Cerrar modal"
         >
           <svg
@@ -94,15 +95,17 @@ export default function Modal({
           </svg>
         </button>
 
-        <div className="max-h-[80vh] overflow-y-auto">
+        <div className="max-h-[80vh] overflow-y-auto ml-2 mt-6">
           {loading ? (
-            <div className="flex justify-center items-center h-48">
-              <p>Cargando receta...</p>
+            <div className="flex justify-center items-center h-auto">
+              <Skeleton className="w-[280px] h-auto rounded-sm animate-pulse bg-blue-100" />
+              <Skeleton className="w-40 h-3 animate-pulse bg-blue-100" />
+              <Skeleton className="w-28 h-9 animate-pulse bg-blue-100" />
             </div>
           ) : meal ? (
             <div className="space-y-4">
               {/* Imagen con fallback */}
-              <div className="w-full h-48 bg-gray-100 rounded-lg overflow-hidden">
+              <div className="w-full h-auto bg-gray-100 rounded-lg overflow-hidden">
                 {meal.strMealThumb ? (
                   <img
                     src={meal.strMealThumb}
@@ -117,15 +120,17 @@ export default function Modal({
               </div>
 
               {/* Título */}
-              <h2 className="text-xl font-bold text-center">
+              <h2 className="font-montserrat text-blue-500 font-bold text-center">
                 {meal.strMeal || "Receta sin nombre"}
               </h2>
 
               {/* Ingredientes */}
               <div>
-                <h3 className="font-bold mb-2">Ingredientes:</h3>
+                <h3 className="font-bold font-montserrat text-blue-500 mb-2">
+                  Ingredientes:
+                </h3>
                 {getIngredients().length > 0 ? (
-                  <ul className="list-disc pl-5 space-y-1">
+                  <ul className="list-disc pl-5 font-montserrat text-blue-500 space-y-1">
                     {getIngredients().map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
@@ -139,26 +144,35 @@ export default function Modal({
 
               {/* Preparación */}
               <div>
-                <h3 className="font-bold mb-2">Preparación:</h3>
+                <h3 className="font-bold font-montserrat text-blue-500 mb-2">
+                  Preparación:
+                </h3>
                 {meal.strInstructions ? (
                   <div className="space-y-2">
                     {(meal.strInstructions || "")
                       .split("\r\n")
                       .filter((p) => p.trim() !== "")
                       .map((paragraph, index) => (
-                        <p key={index}>{paragraph}</p>
+                        <p
+                          className="font-montserrat text-blue-500"
+                          key={index}
+                        >
+                          {paragraph}
+                        </p>
                       ))}
                   </div>
                 ) : (
-                  <p className="text-gray-500">
+                  <p className="text-gray-500 font-montserrat">
                     No hay instrucciones disponibles
                   </p>
                 )}
               </div>
             </div>
           ) : (
-            <div className="flex justify-center items-center h-48">
-              <p>No se encontró información de la receta</p>
+            <div className="flex justify-center  items-center h-48">
+              <p className="font-montserrat">
+                No se encontró información de la receta
+              </p>
             </div>
           )}
         </div>
