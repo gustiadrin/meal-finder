@@ -58,7 +58,7 @@ const MealCard = ({ imageUrl, title, handleModal, idMeal }: Props) => {
         onClick={() => handleModal(idMeal)}
         className="w-28 h-9 font-montserrat text-white bg-blue-400 rounded-md hover:bg-blue-700"
       >
-        Ver receta
+        See recipie
       </button>
     </div>
   );

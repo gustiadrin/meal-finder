@@ -37,9 +37,9 @@ export default function PrincipalContent({
   //console.log(data);
 
   if (loading || !data?.length) {
-    if (!data?.length && !loading) {
-      return <p>no existen recetas</p>;
-    }
+    // if (!data?.length && !loading) {
+    //   return <p>no existen recetas</p>;
+    // }
 
     return (
       <div className="flex-1 bg-blue-50 overflow-y-auto min-h-[calc(100vh-64px)]">

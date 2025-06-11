@@ -98,10 +98,21 @@ export default function Modal({
 
         <div className="max-h-[80vh] overflow-y-auto ml-2 mt-6">
           {loading ? (
-            <div className="flex justify-center items-center h-auto">
-              <Skeleton className="w-[280px] h-auto rounded-sm animate-pulse bg-blue-100" />
-              <Skeleton className="w-40 h-3 animate-pulse bg-blue-100" />
-              <Skeleton className="w-28 h-9 animate-pulse bg-blue-100" />
+            <div>
+              <div className="flex flex-col justify-center items-center h-auto gap-6">
+                <Skeleton className="w-[376px] h-[376px] animate-pulse bg-blue-100" />
+                <Skeleton className="w-40 h-4 animate-pulse bg-blue-100" />
+                {/* <Skeleton className="w-[280px] h-auto rounded-sm animate-pulse bg-blue-100" /> */}
+              </div>
+              <div className="flex flex-col gap-3 mt-3.5">
+                <Skeleton className="w-20 h-4 animate-pulse bg-blue-100" />
+                <Skeleton className="ml-2 w-24 h-4 animate-pulse bg-blue-100" />
+                <Skeleton className="ml-2 w-16 h-4 animate-pulse bg-blue-100" />
+                <Skeleton className="ml-2 w-20 h-4 animate-pulse bg-blue-100" />
+                <Skeleton className="ml-2 w-24 h-4 animate-pulse bg-blue-100" />
+                <Skeleton className="ml-2 w-16 h-4 animate-pulse bg-blue-100" />
+                <Skeleton className="ml-2 w-20 h-4 animate-pulse bg-blue-100" />
+              </div>
             </div>
           ) : meal ? (
             <div className="space-y-4">
@@ -115,7 +126,7 @@ export default function Modal({
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-gray-500">
-                    No hay imagen disponible
+                    No image.
                   </div>
                 )}
               </div>
@@ -128,7 +139,7 @@ export default function Modal({
               {/* Ingredientes */}
               <div>
                 <h3 className="font-bold font-montserrat text-blue-500 mb-2">
-                  Ingredientes:
+                  Ingredients:
                 </h3>
                 {getIngredients().length > 0 ? (
                   <ul className="list-disc pl-5 font-montserrat text-blue-500 space-y-1">
@@ -138,7 +149,7 @@ export default function Modal({
                   </ul>
                 ) : (
                   <p className="text-gray-500">
-                    No se especificaron ingredientes
+                    There are no available ingredients.
                   </p>
                 )}
               </div>
@@ -146,7 +157,7 @@ export default function Modal({
               {/* Preparación */}
               <div>
                 <h3 className="font-bold font-montserrat text-blue-500 mb-2">
-                  Preparación:
+                  Instructions:
                 </h3>
                 {meal.strInstructions ? (
                   <div className="space-y-2">
@@ -164,7 +175,7 @@ export default function Modal({
                   </div>
                 ) : (
                   <p className="text-gray-500 font-montserrat">
-                    No hay instrucciones disponibles
+                    There are no available instructions.
                   </p>
                 )}
               </div>
@@ -172,7 +183,7 @@ export default function Modal({
           ) : (
             <div className="flex justify-center  items-center h-48">
               <p className="font-montserrat">
-                No se encontró información de la receta
+                No recipe information was found.
               </p>
             </div>
           )}

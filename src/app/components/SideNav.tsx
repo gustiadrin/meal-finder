@@ -123,7 +123,7 @@ export default function SideNav({ setCategory }: SideNavProps) {
       <div className="hidden md:block w-[250px] sticky top-16 h-[calc(100vh-4rem)]">
         <div className="p-4">
           <h2 className="text-lg font-roboto text-blue-400 font-bold mb-4">
-            CATEGORÍAS
+            CATEGORIES
           </h2>
           {renderSkeletons()}
         </div>
@@ -173,7 +173,7 @@ export default function SideNav({ setCategory }: SideNavProps) {
             <div className="flex flex-col h-full">
               <div className="flex justify-between items-center p-4 bg-blue-50 sticky top-0 z-10">
                 <h2 className="font-roboto text-lg text-blue-400 font-bold">
-                  CATEGORÍAS
+                  CATEGORIES
                 </h2>
                 <button
                   className="text-2xl text-blue-50 hover:text-gray-700 focus:outline-none"
